@@ -1,5 +1,4 @@
 build:
-	mkdir bin
 	GOOS=linux go build -v -o ./bin/k8s-ops .
 clear:
 	rm -fr k8s-ops

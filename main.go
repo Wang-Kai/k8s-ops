@@ -27,7 +27,10 @@ func main() {
 
 		pods, err := clientset.CoreV1().Pods(ns).List(metav1.ListOptions{})
 		if err != nil {
-			panic(err.Error())
+			c.JSON(500, gin.H{
+				"error": err.Error(),
+			})
+			return
 		}
 
 		c.JSON(200, gin.H{
